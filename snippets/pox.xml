@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="pox"
+          fetch="https://github.com/pox-os"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/pox-15.0" />
+
+  <!-- POX OS Overrides: replace standard components with customized repositories -->
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="pox" />
+
+  <remove-project name="LineageOS/android_packages_apps_Settings" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="pox" />
+
+  <remove-project name="LineageOS/android_build" />
+  <project path="build/make" name="build_make" groups="pdk,sysui-studio" remote="pox">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <!-- POX OS Additions -->
+  <project path="manifest" name="manifest" remote="pox" />
+  <project path="vendor/pox" name="vendor_pox" remote="pox" />
+  <project path="packages/apps/PoxHub" name="packages_apps_PoxHub" remote="pox" />
+</manifest>
