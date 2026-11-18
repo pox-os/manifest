@@ -6,14 +6,14 @@
           sync-j="4"
           revision="refs/heads/pox-15.0" />
 
-  <!-- POX OS Overrides: replace standard components with customized repositories -->
-  <remove-project name="LineageOS/android_frameworks_base" />
+  <!-- POX OS Overrides: Replace standard Google AOSP components with customized repositories -->
+  <remove-project name="platform/frameworks/base" />
   <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="pox" />
 
-  <remove-project name="LineageOS/android_packages_apps_Settings" />
+  <remove-project name="platform/packages/apps/Settings" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="pox" />
 
-  <remove-project name="LineageOS/android_build" />
+  <remove-project name="platform/build" />
   <project path="build/make" name="build_make" groups="pdk,sysui-studio" remote="pox">
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -23,7 +23,7 @@
     <linkfile src="tools" dest="build/tools" />
   </project>
 
-  <!-- POX OS Additions -->
+  <!-- POX OS Custom Components -->
   <project path="manifest" name="manifest" remote="pox" />
   <project path="vendor/pox" name="vendor_pox" remote="pox" />
   <project path="packages/apps/PoxHub" name="packages_apps_PoxHub" remote="pox" />
